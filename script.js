@@ -38,26 +38,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Navigation active simple
     function updateActiveNav() {
         const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
+        const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
         
         let current = '';
         
-        // Si on est en haut de page, sélectionner "home" par défaut
-        if (window.scrollY < 100) {
-            current = 'home';
-        } else {
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
-                }
-            });
-        }
+        // Détecter la section actuelle en fonction du scroll
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
 
+        // Mettre à jour les liens actifs
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + current) {
+            if (current && link.getAttribute('href') === '#' + current) {
                 link.classList.add('active');
             }
         });
@@ -84,6 +81,31 @@ document.addEventListener('DOMContentLoaded', function() {
         skillBars.forEach(bar => observer.observe(bar));
     }
 
+    // Animation de la section expérience au scroll (mobile uniquement)
+    function animateExperienceOnScroll() {
+        // Vérifier si on est sur mobile
+        if (window.innerWidth > 768) return;
+
+        const experienceSection = document.querySelector('#experience');
+        const timelineContents = document.querySelectorAll('.experience .timeline-content');
+        
+        if (!experienceSection || timelineContents.length === 0) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Déclencher l'animation pour tous les timeline-content
+                    timelineContents.forEach(content => {
+                        content.classList.add('animate-in');
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(experienceSection);
+    }
+
     // Initialisation AOS si disponible
     if (typeof AOS !== 'undefined') {
         AOS.init({
@@ -95,9 +117,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Event listeners
     window.addEventListener('scroll', updateActiveNav);
+    window.addEventListener('resize', () => {
+        // Réinitialiser l'animation d'expérience si nécessaire
+        const timelineContents = document.querySelectorAll('.experience .timeline-content');
+        if (window.innerWidth <= 768) {
+            // Sur mobile : s'assurer que l'animation peut se déclencher
+            animateExperienceOnScroll();
+        } else {
+            // Sur desktop : enlever la classe animate-in et remettre l'état normal
+            timelineContents.forEach(content => {
+                content.classList.remove('animate-in');
+                content.style.opacity = '1';
+                content.style.transform = 'translateY(0)';
+            });
+        }
+    });
     
     // Initialiser les animations
     animateSkillBars();
+    animateExperienceOnScroll();
     
     // Mettre à jour la navigation active au chargement
     updateActiveNav();
@@ -105,23 +143,5 @@ document.addEventListener('DOMContentLoaded', function() {
         // S'assurer que le body est visible
     document.body.style.opacity = '1';
 
-    // Gestion du dropdown de langue
-    window.toggleLanguageDropdown = function() {
-        const dropdown = document.querySelector('.lang-dropdown');
-        const dropdownContent = document.getElementById('langDropdown');
-        
-        dropdown.classList.toggle('active');
-        dropdownContent.classList.toggle('active');
-    };
 
-    // Fermer le dropdown si on clique ailleurs
-    document.addEventListener('click', function(event) {
-        const dropdown = document.querySelector('.lang-dropdown');
-        const dropdownContent = document.getElementById('langDropdown');
-        
-        if (!dropdown.contains(event.target)) {
-            dropdown.classList.remove('active');
-            dropdownContent.classList.remove('active');
-        }
-    });
 });
