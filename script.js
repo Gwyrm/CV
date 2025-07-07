@@ -41,13 +41,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const navLinks = document.querySelectorAll('.nav-link');
         
         let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.clientHeight;
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
-            }
-        });
+        
+        // Si on est en haut de page, sélectionner "home" par défaut
+        if (window.scrollY < 100) {
+            current = 'home';
+        } else {
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+        }
 
         navLinks.forEach(link => {
             link.classList.remove('active');
@@ -93,40 +99,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialiser les animations
     animateSkillBars();
     
-    // S'assurer que le body est visible
+    // Mettre à jour la navigation active au chargement
+    updateActiveNav();
+    
+        // S'assurer que le body est visible
     document.body.style.opacity = '1';
 
-    // Gestion du formulaire de contact
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Récupérer les données du formulaire
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            
-            // Créer le lien mailto avec les données du formulaire
-            const mailtoLink = `mailto:moreau.p.02@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-                `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-            )}`;
-            
-            // Ouvrir le client email
-            window.location.href = mailtoLink;
-            
-            // Afficher un message de confirmation
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Ready!';
-            submitBtn.style.background = '#10b981';
-            
-            setTimeout(() => {
-                submitBtn.innerHTML = originalText;
-                submitBtn.style.background = '';
-            }, 3000);
-        });
-    }
+    // Gestion du dropdown de langue
+    window.toggleLanguageDropdown = function() {
+        const dropdown = document.querySelector('.lang-dropdown');
+        const dropdownContent = document.getElementById('langDropdown');
+        
+        dropdown.classList.toggle('active');
+        dropdownContent.classList.toggle('active');
+    };
+
+    // Fermer le dropdown si on clique ailleurs
+    document.addEventListener('click', function(event) {
+        const dropdown = document.querySelector('.lang-dropdown');
+        const dropdownContent = document.getElementById('langDropdown');
+        
+        if (!dropdown.contains(event.target)) {
+            dropdown.classList.remove('active');
+            dropdownContent.classList.remove('active');
+        }
+    });
 });
