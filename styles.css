@@ -198,15 +198,44 @@ body {
 }
 
 .lang-switch .flag-icon {
-    font-size: 1rem;
+    width: 20px;
+    height: 14px;
     opacity: 0.9;
     transition: all 0.3s ease;
     display: inline-block;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    margin-right: 4px;
 }
 
 .lang-switch:hover .flag-icon {
     opacity: 1;
     transform: scale(1.15);
+}
+
+/* Drapeau français */
+.flag-icon.flag-fr {
+    background: linear-gradient(to right, #002395 33.33%, #ffffff 33.33%, #ffffff 66.66%, #ed2939 66.66%);
+}
+
+/* Drapeau britannique simplifié */
+.flag-icon.flag-gb {
+    background: #012169;
+}
+
+.flag-icon.flag-gb::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(to right, transparent 45%, #ffffff 45%, #ffffff 55%, transparent 55%),
+        linear-gradient(to bottom, transparent 45%, #ffffff 45%, #ffffff 55%, transparent 55%),
+        linear-gradient(45deg, transparent 40%, #ffffff 40%, #ffffff 45%, #ce1126 45%, #ce1126 55%, #ffffff 55%, #ffffff 60%, transparent 60%),
+        linear-gradient(-45deg, transparent 40%, #ffffff 40%, #ffffff 45%, #ce1126 45%, #ce1126 55%, #ffffff 55%, #ffffff 60%, transparent 60%);
 }
 
 .lang-switch span {
@@ -664,6 +693,61 @@ section {
 
 .tech-tag:hover {
     transform: scale(1.05);
+}
+
+/* Project Links */
+.project-links {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.625rem 1.25rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 25px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.project-link:hover {
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.project-link:hover::before {
+    left: 0;
+}
+
+.project-link i {
+    font-size: 0.85rem;
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover i {
+    transform: translateX(2px);
 }
 
 /* Skills Section modernisée */
