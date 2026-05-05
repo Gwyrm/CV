@@ -133,9 +133,48 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // Animation count-up pour les métriques
+    function animateMetrics() {
+        const targets = document.querySelectorAll('.metric-value [data-target], .metric-value[data-target]');
+        if (!targets.length) return;
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        const counter = (el, end, duration = 1400) => {
+            if (reduceMotion) {
+                el.textContent = end.toLocaleString('fr-FR').replace(/\s/g, ' ');
+                return;
+            }
+            const start = performance.now();
+            const startVal = 0;
+            const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+            const tick = (now) => {
+                const elapsed = now - start;
+                const t = Math.min(elapsed / duration, 1);
+                const value = Math.floor(startVal + (end - startVal) * easeOut(t));
+                el.textContent = value;
+                if (t < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                const end = parseInt(el.dataset.target, 10);
+                if (Number.isFinite(end)) counter(el, end);
+                observer.unobserve(el);
+            });
+        }, { threshold: 0.5 });
+
+        targets.forEach((el) => observer.observe(el));
+    }
+
     // Initialiser les animations
     animateSkillBars();
     animateExperienceOnScroll();
+    animateMetrics();
     
     // Mettre à jour la navigation active au chargement
     updateActiveNav();
