@@ -49,10 +49,10 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">Pierre Moreau</h1>
-                <h2 class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">Docteur en Machine Learning</h2>
-                <p class="hero-description" data-aos="fade-up" data-aos-delay="600">Chercheur en IA et Machine Learning spécialisé dans les applications de santé, l'apprentissage multimodal et l'évaluation des risques cliniques</p>
+                <h2 class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">Docteur en Machine Learning · Ingénieur IA Santé</h2>
+                <p class="hero-description" data-aos="fade-up" data-aos-delay="600">Chercheur en IA spécialisé dans les applications de santé &mdash; apprentissage multimodal, évaluation des risques cliniques, IA générative. Fondateur de <strong>Noovate-lab</strong>, studio IA-first. Disponible pour des missions de conseil IA dans le secteur de la santé.</p>
                 <div class="hero-buttons" data-aos="fade-up" data-aos-delay="800">
-                    <a href="#about" class="btn btn-primary">Me contacter</a>
+                    <a href="#contact" class="btn btn-primary">Me contacter</a>
                     <a href="#projects" class="btn btn-secondary">Voir mes projets</a>
                 </div>
             </div>
@@ -65,12 +65,13 @@
             <h2 class="section-title" data-aos="fade-up">À propos de moi</h2>
             <div class="about-content">
                 <div class="about-text" data-aos="fade-up" data-aos-delay="200">
-                    <p>Je suis un chercheur en IA et Machine Learning avec un doctorat en apprentissage automatique (soutenu en novembre 2023), spécialisé dans les applications de santé. Avec une expertise en IA générative, apprentissage multimodal et évaluation des risques cliniques, j'apporte une expérience étendue dans le développement de systèmes basés sur les LLM, la vision par ordinateur et la segmentation d'images médicales.</p>
-                    <p>Mon travail combine des connaissances techniques approfondies avec des applications pratiques, du développement de pipelines de traitement du langage naturel et de systèmes de transcription vocale à la création de modèles sophistiqués pour le diagnostic médical et l'optimisation des soins aux patients.</p>
+                    <p>Je suis chercheur en IA et Machine Learning, <strong>docteur en informatique (nov. 2023)</strong>, spécialisé en santé. Ma thèse, menée en partenariat avec le CHU d&rsquo;Amiens, portait sur l&rsquo;analyse du mouvement par intelligence artificielle &mdash; appliquée notamment à la maladie de Parkinson.</p>
+                    <p>Je suis actuellement <strong>post-doctorant à l&rsquo;Université de Picardie Jules Verne</strong>, sur le <strong>projet RAUC</strong> : un parcours de soins optimisé pour les urgences chirurgicales digestives, intégrant l&rsquo;IA pour prédire les complications post-opératoires. Auparavant, j&rsquo;ai dirigé le pôle IA &amp; Data Science Santé chez <strong>Capgemini Engineering</strong> sur un démonstrateur d&rsquo;assistant médical par IA générative, en coordonnant une équipe de 15 à 20 personnes.</p>
+                    <p>En parallèle, je fonde <strong>Noovate-lab</strong>, un studio IA-first qui conçoit des produits concrets pour la santé et les TPE. J&rsquo;apporte une expertise solide en <strong>systèmes LLM, RAG multimodal, vision par ordinateur (imagerie médicale), IA explicable</strong> et déploiement de pipelines ML en production.</p>
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <a href="https://www.google.com/maps/place/Amiens,+France" target="_blank">Amiens</a>
+                            <a href="https://www.google.com/maps/place/Amiens,+France" target="_blank" rel="noopener">Amiens, France</a>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
@@ -78,15 +79,15 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <span>06 11 80 58 32</span>
+                            <a href="tel:+33611805832">+33 6 11 80 58 32</a>
                         </div>
                         <div class="contact-item">
                             <i class="fab fa-linkedin"></i>
-                            <a href="https://www.linkedin.com/in/pierre-moreau-phd/" target="_blank">Profil LinkedIn</a>
+                            <a href="https://www.linkedin.com/in/pierre-moreau-phd/" target="_blank" rel="noopener">Profil LinkedIn</a>
                         </div>
                         <div class="contact-item">
                             <i class="fab fa-github"></i>
-                            <a href="https://github.com/Gwyrm" target="_blank">Profil GitHub</a>
+                            <a href="https://github.com/Gwyrm" target="_blank" rel="noopener">Profil GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -170,73 +171,99 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Projets Principaux</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Un mélange entre <strong>produits du studio Noovate-lab</strong> (en production / en développement) et <strong>projets recherche &amp; pro</strong>.</p>
+
+            <h3 class="projects-group-title" data-aos="fade-up">Studio Noovate-lab</h3>
+            <div class="projects-grid">
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-header">
+                        <i class="fas fa-file-invoice project-icon"></i>
+                        <h3>Noovate &mdash; ERP IA pour TPE</h3>
+                    </div>
+                    <p>ERP full-stack pour artisans et TPE français : devis, factures, avoirs, acomptes, facturation électronique (Factur-X), abonnements Stripe, OCR, dictée vocale (Whisper), assistant IA conversationnel. 750+ tests, audit RGPD, design system &laquo; Atelier &raquo;.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">Next.js 15</span>
+                        <span class="tech-tag">Claude API</span>
+                        <span class="tech-tag">Whisper</span>
+                        <span class="tech-tag">Stripe</span>
+                        <span class="tech-tag">Factur-X</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://i-noovate.fr/" target="_blank" rel="noopener" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Voir la Démo Live
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-header">
+                        <i class="fas fa-compass project-icon"></i>
+                        <h3>Boussole &mdash; Assistant IA aides &amp; recours</h3>
+                    </div>
+                    <p>Assistant IA qui regroupe toutes les aides françaises (60+ via OpenFisca, ~1500 aides locales) et recours juridiques au même endroit. Trois piliers : aides citoyennes, aides sectorielles (médecins, profs, fonctionnaires), recours/litiges (caution, etc.). MVP en cours.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Next.js 15</span>
+                        <span class="tech-tag">Supabase</span>
+                        <span class="tech-tag">Claude API</span>
+                        <span class="tech-tag">RAG</span>
+                        <span class="tech-tag">OpenFisca</span>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="project-header">
+                        <i class="fas fa-x-ray project-icon"></i>
+                        <h3>Vesta &mdash; Planning radiologie</h3>
+                    </div>
+                    <p>Application web qui génère le planning mensuel du Service de Radiologie du CHU d&rsquo;Amiens &mdash; 5 spécialités, rotation sur 6 semaines, verrous manuels avec régénération auto. 100% côté client (React + Vite), persisté en localStorage.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Vite</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Déployé au CHU</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="projects-group-title" data-aos="fade-up">Projets recherche &amp; pro</h3>
             <div class="projects-grid">
                 <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="project-header">
                         <i class="fas fa-heartbeat project-icon"></i>
-                        <h3>Assistant Médical IA</h3>
+                        <h3>Assistant Médical IA (Capgemini)</h3>
                     </div>
-                    <p>Assistant médical basé sur l'IA générative avec capacités de traitement multimodal, intégrant OCR pour l'analyse de tests sanguins et la transcription vocale.</p>
+                    <p>Démonstrateur d&rsquo;assistant médical par IA générative, traitement multimodal : OCR pour analyses sanguines, Whisper STT, fine-tuning LLM pour résumés cliniques, pipeline RAG multimodal.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">LangChain</span>
-                        <span class="tech-tag">OCR</span>
-                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">PEFT / LoRA</span>
+                        <span class="tech-tag">RAG</span>
                     </div>
                 </div>
                 <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="project-header">
                         <i class="fas fa-brain project-icon"></i>
-                        <h3>Évaluation des Risques Cliniques</h3>
+                        <h3>Segmentation du placenta (Doppler 3D)</h3>
                     </div>
-                    <p>Développement de modèles d'apprentissage automatique pour la segmentation placentaire et la prédiction des risques cliniques, améliorant la précision des évaluations prénatales.</p>
+                    <p>Segmentation par Transformers (UNetR, SwinUNet) pour la détection précoce de la prééclampsie sur images Doppler 3D. Soumis à CMIG 2025 (co-auteur).</p>
                     <div class="project-tech">
-                        <span class="tech-tag">Deep Learning</span>
-                        <span class="tech-tag">Imagerie Médicale</span>
-                        <span class="tech-tag">CNN</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">UNetR</span>
+                        <span class="tech-tag">SwinUNet</span>
+                        <span class="tech-tag">Imagerie médicale</span>
                     </div>
                 </div>
                 <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
                     <div class="project-header">
                         <i class="fas fa-walking project-icon"></i>
-                        <h3>Analyse du Mouvement Humain</h3>
+                        <h3>Analyse du mouvement humain (thèse)</h3>
                     </div>
-                    <p>Système complet de modélisation du mouvement humain utilisant des architectures d'apprentissage profond avec des techniques d'analyse de données avancées.</p>
+                    <p>Modélisation complète du mouvement appliquée à Parkinson et à la reconnaissance d&rsquo;activité humaine. Architectures deep learning (RNN, LSTM, CNN), algorithmes génétiques, représentations matricielles interprétables. 3 publications.</p>
                     <div class="project-tech">
-                        <span class="tech-tag">RNN</span>
-                        <span class="tech-tag">LSTM</span>
-                        <span class="tech-tag">Analyse de Données</span>
-                    </div>
-                </div>
-                <div class="project-card" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="project-header">
-                        <i class="fas fa-robot project-icon"></i>
-                        <h3>Pipeline RAG Multimodal</h3>
-                    </div>
-                    <p>Construction d'un système de génération augmentée par récupération avec capacités multimodales pour le traitement amélioré de documents de santé.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">LLM</span>
-                        <span class="tech-tag">Vector DB</span>
-                        <span class="tech-tag">RAG</span>
-                    </div>
-                </div>
-                <div class="project-card" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="project-header">
-                        <i class="fas fa-file-invoice project-icon"></i>
-                        <h3>Système de Gestion Devis & Facturation</h3>
-                    </div>
-                    <p>Logiciel complet de gestion d'entreprise pour traiter les devis, factures et relations clients avec facturation automatisée et capacités de reporting.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Logique Métier</span>
-                        <span class="tech-tag">Base de Données</span>
-                        <span class="tech-tag">Génération PDF</span>
-                        <span class="tech-tag">Gestion Clients</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://i-noovate.fr/" target="_blank" class="project-link">
-                            <i class="fas fa-external-link-alt"></i>
-                            Voir la Démo Live
-                        </a>
+                        <span class="tech-tag">RNN / LSTM</span>
+                        <span class="tech-tag">PCA / DTW</span>
+                        <span class="tech-tag">Algos génétiques</span>
+                        <span class="tech-tag">SVM</span>
                     </div>
                 </div>
             </div>
@@ -395,7 +422,7 @@
     <!-- Footer -->
     <footer class="footer" data-aos="fade-up">
         <div class="container">
-            <p>&copy; 2026 Pierre Moreau. Tous droits réservés.</p>
+            <p>&copy; 2026 Pierre Moreau · Noovate-lab. Tous droits réservés.</p>
         </div>
     </footer>
 
