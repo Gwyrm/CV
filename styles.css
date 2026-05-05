@@ -46,6 +46,9 @@
     --gradient-accent: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-emerald) 100%);
     --glass-bg: rgba(34, 211, 238, 0.04);
     --glass-border: rgba(34, 211, 238, 0.12);
+
+    /* Typography */
+    --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 }
 
 body {
@@ -1927,6 +1930,96 @@ body {
 /* Skill bar legacy (no longer used but ensure dark fallback) */
 .skill-bar {
     background: var(--border-color);
+}
+
+/* ========================================================================
+   Monospace touches — terminal/console feel without shouting "AI"
+   ======================================================================== */
+
+/* Hero subtitle as a "console line" */
+.hero-subtitle {
+    font-family: var(--font-mono);
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.hero-subtitle::before {
+    content: '> ';
+    opacity: 0.6;
+    color: var(--accent-emerald);
+}
+
+/* Timeline dates */
+.timeline-date {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    text-transform: lowercase;
+}
+
+/* Skill tags : mono with bullet prefix */
+.skill-tags .tech-tag {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.3rem 0.65rem 0.3rem 0.55rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.skill-tags .tech-tag::before {
+    content: '●';
+    font-size: 0.55rem;
+    color: var(--accent-emerald);
+    line-height: 1;
+}
+
+/* Publication meta as code-like chips */
+.publication-year {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+}
+
+.publication-status {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+}
+
+.publication-venue {
+    font-style: normal;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: -0.01em;
+}
+
+/* Section subtitle small mono cue */
+.projects-group-title {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 1.15rem;
+    text-transform: lowercase;
+    letter-spacing: 0;
+}
+
+.projects-group-title::before {
+    content: '# ';
+    color: var(--accent-emerald);
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+    .skill-tags .tech-tag {
+        font-size: 0.75rem;
+    }
 }
 /* Cache refresh Lun  7 jul 2025 04:01:25 CEST */
 
