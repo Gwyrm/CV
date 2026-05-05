@@ -1290,5 +1290,234 @@ section {
 .projects-group-title:first-of-type {
     margin-top: 0;
 }
+
+/* ========================================================================
+   Studio Noovate-lab section
+   ======================================================================== */
+
+.studio {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.studio::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(59, 130, 246, 0.18), transparent 45%),
+        radial-gradient(circle at 80% 90%, rgba(6, 182, 212, 0.15), transparent 45%);
+    pointer-events: none;
+}
+
+.studio .container {
+    position: relative;
+    z-index: 1;
+}
+
+.studio .section-title {
+    color: var(--white);
+}
+
+.studio .section-title::after {
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+}
+
+.studio-content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.studio-pitch {
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 800px;
+    margin: 0 auto 3.5rem;
+}
+
+.studio-pitch strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.studio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+}
+
+.studio-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 2rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.studio-card:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.studio-icon {
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.studio-card h3 {
+    color: var(--white);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.studio-card p {
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.studio-card p strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.studio-cta {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.studio-cta p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+}
+
+.studio-cta .btn-primary {
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--white);
+    border: none;
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+}
+
+.studio-cta .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5);
+}
+
+/* ========================================================================
+   Publications section
+   ======================================================================== */
+
+.publications {
+    background: var(--white);
+}
+
+.publications-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.publication-item {
+    background: var(--white);
+    padding: 1.75rem 2rem;
+    border-radius: 14px;
+    border: 1px solid rgba(59, 130, 246, 0.12);
+    box-shadow: var(--shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 4px solid var(--secondary-color);
+}
+
+.publication-item:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-lg);
+    border-left-color: var(--accent-color);
+}
+
+.publication-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.publication-year {
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+}
+
+.publication-status {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.7rem;
+    border-radius: 12px;
+    background: rgba(34, 197, 94, 0.1);
+    color: rgb(22, 163, 74);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.publication-status.status-submitted {
+    background: rgba(234, 179, 8, 0.1);
+    color: rgb(161, 98, 7);
+}
+
+.publication-item h3 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.publication-venue {
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.publication-authors {
+    color: var(--gray);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.publication-authors strong {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .studio-pitch {
+        font-size: 1.05rem;
+    }
+    .studio-card {
+        padding: 1.5rem;
+    }
+    .publication-item {
+        padding: 1.25rem 1.5rem;
+    }
+}
 /* Cache refresh Lun  7 jul 2025 04:01:25 CEST */
 
