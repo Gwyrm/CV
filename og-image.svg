@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a0e14"/>
+      <stop offset="0.6" stop-color="#0f1419"/>
+      <stop offset="1" stop-color="#0e2832"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#10b981"/>
+    </linearGradient>
+    <radialGradient id="orb1" cx="950" cy="170" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="200" cy="500" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10b981" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#orb1)"/>
+  <rect width="1200" height="630" fill="url(#orb2)"/>
+
+  <!-- Top accent line -->
+  <rect x="0" y="0" width="1200" height="3" fill="url(#accent)" opacity="0.7"/>
+
+  <!-- Neural mark (top-left) -->
+  <g transform="translate(72, 72)">
+    <line x1="32" y1="32" x2="14" y2="14" stroke="url(#accent)" stroke-width="1.6" opacity="0.7" stroke-linecap="round"/>
+    <line x1="32" y1="32" x2="50" y2="14" stroke="url(#accent)" stroke-width="1.6" opacity="0.7" stroke-linecap="round"/>
+    <line x1="32" y1="32" x2="14" y2="50" stroke="url(#accent)" stroke-width="1.6" opacity="0.7" stroke-linecap="round"/>
+    <line x1="32" y1="32" x2="50" y2="50" stroke="url(#accent)" stroke-width="1.6" opacity="0.7" stroke-linecap="round"/>
+    <circle cx="14" cy="14" r="3.2" fill="#22d3ee"/>
+    <circle cx="50" cy="14" r="3.2" fill="#22d3ee"/>
+    <circle cx="14" cy="50" r="3.2" fill="#10b981"/>
+    <circle cx="50" cy="50" r="3.2" fill="#10b981"/>
+    <circle cx="32" cy="32" r="5" fill="url(#accent)"/>
+    <text x="80" y="40" fill="#9ba9b8" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="20" font-weight="500" letter-spacing="1">noovate-lab</text>
+  </g>
+
+  <!-- Main title -->
+  <text x="72" y="290" fill="#e6edf3" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="92" font-weight="700" letter-spacing="-3">Pierre Moreau</text>
+
+  <!-- Subtitle (mono-ish accent) -->
+  <text x="72" y="350" fill="#22d3ee" font-family="'Courier New', Menlo, Consolas, monospace" font-size="32" font-weight="500" letter-spacing="-0.5">&gt; PhD in Machine Learning &#183; AI Healthcare Engineer</text>
+
+  <!-- Description -->
+  <text x="72" y="410" fill="#9ba9b8" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="26" font-weight="400">Healthcare-AI researcher (post-doc UPJV / RAUC).</text>
+  <text x="72" y="445" fill="#9ba9b8" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="26" font-weight="400">Founder of Noovate-lab. Available for AI consulting.</text>
+
+  <!-- Stats chips -->
+  <g transform="translate(72, 510)" font-family="'Courier New', Menlo, Consolas, monospace" font-size="20" font-weight="600">
+    <g>
+      <rect x="0" y="0" width="170" height="44" rx="22" fill="#131a23" stroke="#22d3ee" stroke-opacity="0.4"/>
+      <text x="85" y="29" fill="#22d3ee" text-anchor="middle">4 publications</text>
+    </g>
+    <g transform="translate(186, 0)">
+      <rect x="0" y="0" width="170" height="44" rx="22" fill="#131a23" stroke="#10b981" stroke-opacity="0.4"/>
+      <text x="85" y="29" fill="#10b981" text-anchor="middle">750+ tests</text>
+    </g>
+    <g transform="translate(372, 0)">
+      <rect x="0" y="0" width="170" height="44" rx="22" fill="#131a23" stroke="#a78bfa" stroke-opacity="0.4"/>
+      <text x="85" y="29" fill="#a78bfa" text-anchor="middle">PhD 2023</text>
+    </g>
+    <g transform="translate(558, 0)">
+      <rect x="0" y="0" width="220" height="44" rx="22" fill="#131a23" stroke="#fbbf24" stroke-opacity="0.4"/>
+      <text x="110" y="29" fill="#fbbf24" text-anchor="middle">team led 15-20</text>
+    </g>
+  </g>
+
+  <!-- URL bottom-right -->
+  <text x="1128" y="588" fill="#5b6573" font-family="'Courier New', Menlo, Consolas, monospace" font-size="18" text-anchor="end">pierremoreau.myddns.me</text>
+</svg>
