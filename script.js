@@ -171,10 +171,108 @@ document.addEventListener('DOMContentLoaded', function() {
         targets.forEach((el) => observer.observe(el));
     }
 
+    // Réseau neuronal subtil en background du Hero
+    function initNeuralNetwork() {
+        const canvas = document.querySelector('.hero-canvas');
+        if (!canvas) return;
+        if (window.innerWidth < 768) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const ctx = canvas.getContext('2d');
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        let particles = [];
+        let width = 0;
+        let height = 0;
+        let rafId = null;
+        let running = true;
+
+        const resize = () => {
+            const rect = canvas.getBoundingClientRect();
+            width = rect.width;
+            height = rect.height;
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            // Densité : ~1 particule pour 18000px²
+            const target = Math.max(30, Math.min(70, Math.round((width * height) / 18000)));
+            particles = Array.from({ length: target }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.25,
+                vy: (Math.random() - 0.5) * 0.25,
+                r: 1.2 + Math.random() * 1.2,
+            }));
+        };
+
+        const linkDist = 130;
+
+        const tick = () => {
+            ctx.clearRect(0, 0, width, height);
+
+            for (const p of particles) {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x <= 0 || p.x >= width) p.vx *= -1;
+                if (p.y <= 0 || p.y >= height) p.vy *= -1;
+            }
+
+            // Connexions
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const a = particles[i];
+                    const b = particles[j];
+                    const dx = a.x - b.x;
+                    const dy = a.y - b.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < linkDist) {
+                        const alpha = (1 - dist / linkDist) * 0.5;
+                        ctx.strokeStyle = `rgba(34, 211, 238, ${alpha})`;
+                        ctx.lineWidth = 0.6;
+                        ctx.beginPath();
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Particules
+            for (const p of particles) {
+                ctx.fillStyle = 'rgba(34, 211, 238, 0.85)';
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            if (running) rafId = requestAnimationFrame(tick);
+        };
+
+        resize();
+        tick();
+
+        window.addEventListener('resize', () => {
+            cancelAnimationFrame(rafId);
+            resize();
+            tick();
+        });
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                running = false;
+                cancelAnimationFrame(rafId);
+            } else if (!running) {
+                running = true;
+                tick();
+            }
+        });
+    }
+
     // Initialiser les animations
     animateSkillBars();
     animateExperienceOnScroll();
     animateMetrics();
+    initNeuralNetwork();
     
     // Mettre à jour la navigation active au chargement
     updateActiveNav();
