@@ -268,11 +268,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Effet typewriter sur le hero subtitle
+    function initTypewriter() {
+        const el = document.querySelector('.hero-subtitle[data-typewriter]');
+        if (!el) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            el.classList.add('typing-done');
+            return;
+        }
+
+        const text = el.textContent;
+        el.textContent = '';
+        el.classList.add('typing');
+
+        let i = 0;
+        const speed = 32; // ms par caractère
+        const tick = () => {
+            if (i < text.length) {
+                el.textContent += text.charAt(i);
+                i++;
+                setTimeout(tick, speed + Math.random() * 25);
+            } else {
+                el.classList.remove('typing');
+                el.classList.add('typing-done');
+            }
+        };
+        // Petit délai pour laisser l'animation AOS du subtitle démarrer
+        setTimeout(tick, 700);
+    }
+
     // Initialiser les animations
     animateSkillBars();
     animateExperienceOnScroll();
     animateMetrics();
     initNeuralNetwork();
+    initTypewriter();
     
     // Mettre à jour la navigation active au chargement
     updateActiveNav();

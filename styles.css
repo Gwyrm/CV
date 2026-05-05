@@ -1950,6 +1950,21 @@ body {
     color: var(--accent-emerald);
 }
 
+/* Blinking cursor while/after typewriter is running */
+.hero-subtitle.typing::after,
+.hero-subtitle.typing-done::after {
+    content: '▍';
+    display: inline-block;
+    margin-left: 3px;
+    color: var(--accent-cyan);
+    animation: subtitle-cursor-blink 1s steps(2, end) infinite;
+    transform: translateY(-1px);
+}
+
+@keyframes subtitle-cursor-blink {
+    to { opacity: 0; }
+}
+
 /* Timeline dates */
 .timeline-date {
     font-family: var(--font-mono);
