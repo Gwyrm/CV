@@ -1701,6 +1701,31 @@ body {
     color: var(--bg-primary);
 }
 
+/* Ghost button — for tertiary actions like "Download CV" */
+.btn-ghost {
+    background: transparent;
+    color: rgba(230, 237, 243, 0.85);
+    border: 1px solid rgba(230, 237, 243, 0.25);
+    backdrop-filter: blur(8px);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.btn-ghost:hover {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+    transform: translateY(-2px);
+    background: rgba(34, 211, 238, 0.06);
+}
+
+.btn-ghost i {
+    font-size: 0.8rem;
+}
+
 /* Cards : elevated dark with subtle border */
 .contact-item {
     background: var(--bg-card);
