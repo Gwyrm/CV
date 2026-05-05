@@ -2140,5 +2140,87 @@ body {
         display: none;
     }
 }
+
+/* ========================================================================
+   Skills — per-category accent color + asymmetric layout
+   ======================================================================== */
+
+/* Asymmetric grid (≥ 900px): 4 cols, ML and GenAI span 2 — they're the
+   flagship categories so they breathe more. */
+@media (min-width: 900px) {
+    .skills-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .skill-category[data-cat="ml"],
+    .skill-category[data-cat="genai"] {
+        grid-column: span 2;
+    }
+}
+
+/* Each category gets its own accent variable, used by border, icon and
+   tag bullets/borders. The tag background uses color-mix for a subtle
+   tinted chip — same hue, low opacity. */
+.skill-category[data-cat="ml"]      { --skill-accent: #a78bfa; } /* violet */
+.skill-category[data-cat="genai"]   { --skill-accent: #22d3ee; } /* cyan   */
+.skill-category[data-cat="vision"]  { --skill-accent: #f472b6; } /* pink   */
+.skill-category[data-cat="nlp"]     { --skill-accent: #fbbf24; } /* amber  */
+.skill-category[data-cat="data"]    { --skill-accent: #2dd4bf; } /* teal   */
+.skill-category[data-cat="backend"] { --skill-accent: #4ade80; } /* green  */
+.skill-category[data-cat="tools"]   { --skill-accent: #38bdf8; } /* sky    */
+.skill-category[data-cat="ethics"]  { --skill-accent: #fb7185; } /* rose   */
+.skill-category[data-cat="langs"]   { --skill-accent: #94a3b8; } /* slate  */
+
+.skill-category[data-cat] {
+    border-left: 3px solid var(--skill-accent);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-category[data-cat]:hover {
+    border-color: var(--border-strong);
+    border-left-color: var(--skill-accent);
+    box-shadow: 0 0 0 1px var(--skill-accent), 0 12px 32px -8px rgba(0, 0, 0, 0.5);
+    transform: translateY(-3px);
+}
+
+.skill-category[data-cat] > h3 i {
+    color: var(--skill-accent);
+}
+
+/* Tags inherit category accent (overrides the global cyan tint) */
+.skill-category[data-cat] .skill-tags .tech-tag {
+    background: color-mix(in srgb, var(--skill-accent) 12%, transparent);
+    color: var(--skill-accent);
+    border-color: color-mix(in srgb, var(--skill-accent) 35%, transparent);
+}
+
+.skill-category[data-cat] .skill-tags .tech-tag::before {
+    color: var(--skill-accent);
+}
+
+.skill-category[data-cat] .skill-tags .tech-tag:hover {
+    background: color-mix(in srgb, var(--skill-accent) 22%, transparent);
+    border-color: var(--skill-accent);
+}
+
+/* Section background: a touch deeper for the skills wall */
+.skills {
+    background: var(--bg-primary);
+    position: relative;
+}
+
+.skills::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(167, 139, 250, 0.06), transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(34, 211, 238, 0.05), transparent 40%);
+    pointer-events: none;
+}
+
+.skills .container {
+    position: relative;
+    z-index: 1;
+}
 /* Cache refresh Lun  7 jul 2025 04:01:25 CEST */
 
